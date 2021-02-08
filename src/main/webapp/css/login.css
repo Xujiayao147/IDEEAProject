@@ -1,0 +1,62 @@
+.loginbdy {
+    margin: 30px 50px 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.toindex {
+    font-size: 110%;
+    margin: 30px 10px 20px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    width: 320px;
+    border: 1px solid #dae1e3;
+    background: #f8fbfd;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.login .form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+.loginbdy input {
+    padding: 10px;
+    margin: 1rem 0;
+    border: 1px solid #dae1e3;
+    font-size: 1rem;
+    line-height: 1.5em;
+    font-weight: 100;
+    display: block;
+    user-select: text;
+    border-radius: 4px;
+    transition: border-color .15s linear;
+    -webkit-appearance: none;
+    color: #4b5b62;
+    -webkit-user-select: text;
+}
+
+.loginbdy input:focus {
+    border-color: #c4c8cb;
+    outline: 0
+}
+
+.loginbdy .login-button {
+    padding: 8px 10px;
+    cursor: pointer;
+    background: #33b1ff;
+    border: .1rem solid #33b1ff;
+    border-radius: .2rem;
+    color: #fff;
+}

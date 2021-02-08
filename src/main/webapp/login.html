@@ -5,7 +5,7 @@
 	<meta content="width=device-width,user-scalable=no" name="viewport"/>
 	<title>Xujiayao</title>
 	<link href="/css/main.css" rel="stylesheet"/>
-	<link href="/css/response.css" rel="stylesheet"/>
+	<link href="/css/login.css" rel="stylesheet"/>
 	<link href="/avatar.jpg" rel="shortcut icon"/>
 </head>
 <body>
@@ -22,9 +22,13 @@
 		                                                                                        target="_blank">bilibili</a>
 	</div>
 </div>
-<div class="respbdy">
-	<div class="respt">成功</div>
-	<div class="mess">数据库登录测试</div>
+<div class="loginbdy">
+	<h2>数据库登录测试</h2>
+    <form method="post" action="/login" class="login">
+        <input tabindex="1" name="username" placeholder="用户名" autofocus="" type="text" class="input">
+        <input tabindex="2" name="password" placeholder="密码" type="password" class="password input ember-view">
+        <input tabindex="3" type="submit" class="login-button" value="登录">
+    </form>
 	<div class="toindex"><a href="/">回到主页</a></div>
 </div>
 </body>
