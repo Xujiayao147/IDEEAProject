@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UserDAO {
 
@@ -20,13 +18,13 @@ public class UserDAO {
 			statement.setString(2, user.getPassword());
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				if (statement.executeUpdate() > 0)
-					return true;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		}
+
+		try {
+			if (statement != null && statement.executeUpdate() > 0)
+				return true;
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 		return false;
@@ -44,13 +42,13 @@ public class UserDAO {
 			statement.setInt(3, user.getUid());
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				if (statement.executeUpdate() > 0)
-					return true;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		}
+
+		try {
+			if (statement != null && statement.executeUpdate() > 0)
+				return true;
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 		return false;
@@ -67,17 +65,18 @@ public class UserDAO {
 			statement.setString(2, user.getPassword());
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				ResultSet result = statement.executeQuery();
+		}
 
-				while (result.next()) {
-					User temp = new User(result.getInt("uid"), result.getString("username"), result.getString("password"));
-					return temp;
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		try {
+			ResultSet result = null;
+
+			if (statement != null)
+				result = statement.executeQuery();
+
+			if (result != null && result.next())
+				return new User(result.getInt("uid"), result.getString("username"), result.getString("password"));
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 		return null;
@@ -93,13 +92,13 @@ public class UserDAO {
 			statement.setInt(1, user.getUid());
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				if (statement.executeUpdate() > 0)
-					return true;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		}
+
+		try {
+			if (statement != null && statement.executeUpdate() > 0)
+				return true;
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 		return false;

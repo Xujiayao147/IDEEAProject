@@ -20,15 +20,11 @@ public class User {
 
 	@Override
 	public String toString() {
-		return new StringBuilder("[").append(uid).append(", ").append(username).append(", ").append(password).append("]").toString();
+		return "[" + uid + ", " + username + ", " + password + "]";
 	}
 
 	public int getUid() {
 		return uid;
-	}
-
-	public void setUid(int uid) {
-		this.uid = uid;
 	}
 
 	public String getUsername() {
