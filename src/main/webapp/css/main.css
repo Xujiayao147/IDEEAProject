@@ -1,0 +1,32 @@
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover {
+    color: #003cd2;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.header {
+    text-align: center;
+}
+
+.avatar {
+    margin: 20px 10px 5px;
+    border-radius: 50%;
+}
+
+.menu {
+    font-weight: bold;
+    margin: 20px 10px 50px;
+}
+
+.melec {
+    margin: 0px 7px;
+    font-size: 110%;
+}
