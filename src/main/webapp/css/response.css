@@ -3,7 +3,7 @@
 }
 
 .respt {
-    padding: 0px 10px 20px;
+    padding: 0 10px 20px;
     font-size: 450%;
 }
 
@@ -11,7 +11,7 @@
     padding: 5px 10px;
 }
 
-.toindex {
+.link {
     font-size: 110%;
     margin: 30px 10px 20px;
 }

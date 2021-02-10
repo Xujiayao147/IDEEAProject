@@ -1,4 +1,4 @@
-.loginbdy {
+.registerbdy {
     margin: 30px 50px 50px;
     text-align: center;
     display: flex;
@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.toregister {
+.tologin {
     text-align: center;
 }
 
@@ -15,7 +15,7 @@
     margin: 30px 10px 20px;
 }
 
-.login {
+.register {
     display: flex;
     flex-direction: column;
     padding: 1rem 2rem;
@@ -26,7 +26,7 @@
     text-align: left;
 }
 
-.login .form-group {
+.register .form-group {
     margin-bottom: 1.5rem;
     position: relative;
     width: 100%;
@@ -35,7 +35,7 @@
     user-select: text;
 }
 
-.loginbdy input {
+.registerbdy input {
     padding: 10px;
     margin: 1rem 0;
     border: 1px solid #dae1e3;
@@ -51,12 +51,12 @@
     -webkit-user-select: text;
 }
 
-.loginbdy input:focus {
+.registerbdy input:focus {
     border-color: #c4c8cb;
     outline: 0
 }
 
-.loginbdy .login-button {
+.registerbdy .register-button {
     padding: 8px 10px;
     cursor: pointer;
     background: #33b1ff;
@@ -65,6 +65,6 @@
     color: #fff;
 }
 
-.loginbdy .login-button:hover {
+.registerbdy .register-button:hover {
     background-color: #00A3DB;
 }

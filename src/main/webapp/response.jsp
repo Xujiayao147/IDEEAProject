@@ -23,18 +23,58 @@
 		                                                                                        target="_blank">bilibili</a>
 	</div>
 </div>
-<div class="respbdy">
-	<div class="respt"><%
-		String resp;
+<%
+	String resp;
+	String mess;
+	String link;
+	String linkText;
 
-		if (request.getParameter("success").equals("true"))
+	switch (request.getParameter("success")) {
+		case "true":
 			resp = "成功";
-		else
+			link = "/";
+			linkText = "回到主页";
+			break;
+		case "false":
 			resp = "失败";
-	%><%= resp %>
+			link = "javascript:history.back(-1)";
+			linkText = "回到上一页";
+			break;
+		default:
+			resp = "无法获取";
+			link = "/";
+			linkText = "回到主页";
+			break;
+	}
+
+	switch (request.getParameter("message")) {
+		case "1":
+			mess = "登录成功";
+			break;
+		case "2":
+			mess = "登录失败：用户名或密码错误";
+			break;
+		case "3":
+			mess = "登录或注册失败：用户名或密码为空";
+			break;
+		case "4":
+			mess = "注册成功";
+			break;
+		case "5":
+			mess = "注册失败：用户名已存在";
+			break;
+		default:
+			mess = "无法获取";
+			break;
+	}
+%>
+<div class="respbdy">
+	<div class="respt"><%= resp %>
 	</div>
-	<div class="mess">数据库登录测试</div>
-	<div class="toindex"><a href="/">回到主页</a></div>
+	<div class="mess"><%= mess %>
+	</div>
+	<div class="link"><a href=<%= link %>><%= linkText %>
+	</a></div>
 </div>
 </body>
 </html>

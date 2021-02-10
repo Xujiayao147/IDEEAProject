@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 
 public class DataSource {
 
-	private static String uri = "jdbc:mysql://localhost:3306/ideeaproject?useUnicode=true&characterEncoding=utf8";
-	private static String username = "root";
-	private static String password = "1234";
+	private static final String uri = "jdbc:mysql://localhost:3306/ideeaproject?useUnicode=true&characterEncoding=utf8";
+	private static final String username = "root";
+	private static final String password = "1234";
 
 	private static Connection connection;
 

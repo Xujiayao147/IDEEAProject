@@ -1,7 +1,9 @@
-package io.gitee.xujiayao147.ideeaProject;
+package io.gitee.xujiayao147.ideeaProject.controller;
 
 import io.gitee.xujiayao147.ideeaProject.bean.User;
-import io.gitee.xujiayao147.ideeaProject.dao.UserDAO;
+import io.gitee.xujiayao147.ideeaProject.service.UserService;
+import io.gitee.xujiayao147.ideeaProject.service.impl.UserServiceImpl;
+import io.gitee.xujiayao147.ideeaProject.utils.SHA256;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -13,6 +15,8 @@ import java.io.IOException;
 @WebServlet("/login")
 public class Login extends HttpServlet {
 
+	UserService userService = new UserServiceImpl();
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		doPost(request, response);
 	}
@@ -21,18 +25,19 @@ public class Login extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		if (username == null || password == null)
+		if (username.equals("") && password.equals(""))
 			request.getRequestDispatcher("/login.html").forward(request, response);
+
+		if (username.equals("") || password.equals(""))
+			request.getRequestDispatcher("/response.jsp?success=false&message=3").forward(request, response);
 
 		User user = new User();
 		user.setUsername(username);
-		user.setPassword(password);
+		user.setPassword(SHA256.getSHA256(password));
 
-		UserDAO userDAO = new UserDAO();
-
-		if (userDAO.query(user) != null)
-			request.getRequestDispatcher("/response.jsp?success=true").forward(request, response);
+		if (userService.queryLogin(user) != null)
+			request.getRequestDispatcher("/response.jsp?success=true&message=1").forward(request, response);
 		else
-			request.getRequestDispatcher("/response.jsp?success=false").forward(request, response);
+			request.getRequestDispatcher("/response.jsp?success=false&message=2").forward(request, response);
 	}
 }

@@ -4,7 +4,7 @@ a {
 }
 
 a:hover {
-    color: #003cd2;
+    color: #00A3DB;
 }
 
 body {
@@ -27,6 +27,6 @@ body {
 }
 
 .melec {
-    margin: 0px 7px;
+    margin: 0 7px;
     font-size: 110%;
 }

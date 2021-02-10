@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserDAO {
+public class UserDao {
 
 	public boolean insert(User user) {
 		Connection connection = DataSource.getConnection();
@@ -57,7 +57,29 @@ public class UserDAO {
 		return false;
 	}
 
-	public User query(User user) {
+	public boolean delete(User user) {
+		Connection connection = DataSource.getConnection();
+		PreparedStatement statement = null;
+
+		try {
+			statement = connection.prepareStatement("delete from users where uid=?");
+
+			statement.setInt(1, user.getUid());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			if (statement != null && statement.executeUpdate() > 0)
+				return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return false;
+	}
+
+	public User queryLogin(User user) {
 		Connection connection = DataSource.getConnection();
 		PreparedStatement statement = null;
 
@@ -85,25 +107,30 @@ public class UserDAO {
 		return null;
 	}
 
-	public boolean delete(User user) {
+	public User queryRegister(User user) {
 		Connection connection = DataSource.getConnection();
 		PreparedStatement statement = null;
 
 		try {
-			statement = connection.prepareStatement("delete from users where uid=?");
+			statement = connection.prepareStatement("select * from users where username=?");
 
-			statement.setInt(1, user.getUid());
+			statement.setString(1, user.getUsername());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 		try {
-			if (statement != null && statement.executeUpdate() > 0)
-				return true;
+			ResultSet result = null;
+
+			if (statement != null)
+				result = statement.executeQuery();
+
+			if (result != null && result.next())
+				return new User();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return false;
+		return null;
 	}
 }

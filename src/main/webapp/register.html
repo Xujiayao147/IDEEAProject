@@ -5,7 +5,7 @@
 	<meta content="width=device-width,user-scalable=no" name="viewport"/>
 	<title>Xujiayao</title>
 	<link href="/css/main.css" rel="stylesheet"/>
-	<link href="/css/index.css" rel="stylesheet"/>
+	<link href="/css/register.css" rel="stylesheet"/>
 	<link href="/avatar.jpg" rel="shortcut icon"/>
 </head>
 <body>
@@ -22,10 +22,15 @@
 		                                                                                        target="_blank">bilibili</a>
 	</div>
 </div>
-<div class="inpge">
-	<h2><a href="/login.html">登录</a></h2>
-	<h2><a href="/register.html">注册</a></h2>
-	<p><a href="https://github.com/Xujiayao147/IDEEAProject" target="_blank">IDEEA Project</a></p>
+<div class="registerbdy">
+	<h2>注册</h2>
+	<form action="/register" class="register" method="post">
+		<input autofocus="" class="input" name="username" placeholder="用户名" tabindex="1" type="text">
+		<input class="password input ember-view" name="password" placeholder="密码" tabindex="2" type="password">
+		<input class="register-button" tabindex="3" type="submit" value="注册">
+		<div class="tologin">已有账号？<a href="/login.html">现在登录</a></div>
+	</form>
+	<div class="link"><a href="/">回到主页</a></div>
 </div>
 </body>
 </html>
