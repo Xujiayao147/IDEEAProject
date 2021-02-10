@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 </head>
 <body>
 <div class="header">
-	<a href="/"><img class="avatar" height="200" src="/avatar.jpg" width="200"/></a>
+	<a href="/"><img class="avatar" height="200" src="/avatar.jpg" width="200" alt="avatar.jpg"/></a>
 	<h1>Xujiayao</h1>
 	<div>没有个性，如何签名？</div>
 	<div class="menu">
@@ -23,7 +24,15 @@
 	</div>
 </div>
 <div class="respbdy">
-	<div class="respt">成功</div>
+	<div class="respt"><%
+		String resp;
+
+		if (request.getParameter("success").equals("true"))
+			resp = "成功";
+		else
+			resp = "失败";
+	%><%= resp %>
+	</div>
 	<div class="mess">数据库登录测试</div>
 	<div class="toindex"><a href="/">回到主页</a></div>
 </div>

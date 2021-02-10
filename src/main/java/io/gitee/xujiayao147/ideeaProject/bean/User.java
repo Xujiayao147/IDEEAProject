@@ -1,4 +1,4 @@
-package io.gitee.xujiayao147.ideeaProject;
+package io.gitee.xujiayao147.ideeaProject.bean;
 
 public class User {
 

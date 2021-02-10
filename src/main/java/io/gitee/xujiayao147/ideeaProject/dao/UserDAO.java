@@ -1,4 +1,7 @@
-package io.gitee.xujiayao147.ideeaProject;
+package io.gitee.xujiayao147.ideeaProject.dao;
+
+import io.gitee.xujiayao147.ideeaProject.bean.User;
+import io.gitee.xujiayao147.ideeaProject.utils.DataSource;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
