@@ -1,3 +1,3 @@
 # IDEEAProject
 
-IDEEA 动态网页项目 - Java
+IDEEA动态网页项目 - Java
