@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+processResources {
+    from('src/main/java') {
+        include '**/*.xml'
+    }
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-gradle-plugin:+"
+    implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:+"
+    implementation "org.springframework.boot:spring-boot-starter-security:+"
+    implementation "org.springframework.boot:spring-boot-starter-web:+"
+    implementation "commons-codec:commons-codec:+"
+    implementation "commons-io:commons-io:+"
+    implementation "com.alibaba:druid:+"
+    implementation "aopalliance:aopalliance:+"
+    implementation "mysql:mysql-connector-java:+"
+}
