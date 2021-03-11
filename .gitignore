@@ -16,4 +16,8 @@ classes/
 
 *.DS_Store
 
+/vue/node_modules/
+/vue/dist/
 GitPusher.bat
+
+!/vue/build/
