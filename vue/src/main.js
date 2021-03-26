@@ -11,8 +11,8 @@ Vue.use(ElementUI)
 Vue.config.productionTip = false
 window.bus = new Vue();
 new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: {App}
+	el: '#app',
+	router,
+	template: '<App/>',
+	components: {App}
 })
