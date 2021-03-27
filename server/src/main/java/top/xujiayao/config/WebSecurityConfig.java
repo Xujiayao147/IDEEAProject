@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 			  .antMatchers("/admin/**", "/reg").hasRole("超级管理员")///admin/**的URL都需要有超级管理员角色，如果使用.hasAuthority()方法来配置，需要在参数中加上ROLE_,如下.hasAuthority("ROLE_超级管理员")
 			  .anyRequest().authenticated()//其他的路径都是登录后即可访问
-			  .and().formLogin().loginPage("/login_page").successHandler((httpServletRequest, httpServletResponse, authentication) -> {
+			  .and().formLogin().loginPage("/").successHandler((httpServletRequest, httpServletResponse, authentication) -> {
 			httpServletResponse.setContentType("application/json;charset=utf-8");
 			PrintWriter out = httpServletResponse.getWriter();
 			out.write("{\"status\":\"success\",\"msg\":\"登录成功\"}");

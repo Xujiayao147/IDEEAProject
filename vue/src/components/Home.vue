@@ -1,7 +1,9 @@
 <template>
 	<el-container class="home_container">
 		<el-header>
-			<div class="home_title">F3 Online Communication Site</div>
+			<div class="home_title"><i class="fab fa-github"/>
+				F3 Online Communication Site
+			</div>
 			<div class="home_userinfoContainer">
 				<el-dropdown @command="handleCommand">
   <span class="el-dropdown-link home_userinfo">
