@@ -132,12 +132,6 @@ export default {
 		imgDel(pos) {
 
 		},
-		getCategories() {
-			let _this = this;
-			getRequest("/admin/category/all").then(resp => {
-				_this.categories = resp.data;
-			});
-		},
 		handleClose(tag) {
 			this.article.dynamicTags.splice(this.article.dynamicTags.indexOf(tag), 1);
 		},
