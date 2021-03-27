@@ -48,11 +48,6 @@
 				label="作者"
 				prop="nickname" width="120">
 			</el-table-column>
-			<el-table-column
-				align="left"
-				label="所属分类"
-				prop="cateName" width="120">
-			</el-table-column>
 			<el-table-column v-if="showEdit || showDelete" align="left" label="操作">
 				<template slot-scope="scope">
 					<el-button

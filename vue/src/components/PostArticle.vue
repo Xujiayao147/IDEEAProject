@@ -49,7 +49,6 @@ import {isNotNullORBlank} from '../utils/utils'
 
 export default {
 	mounted: function () {
-		this.getCategories();
 		let from = this.$route.query.from;
 		this.from = from;
 		let _this = this;
@@ -152,7 +151,6 @@ export default {
 	},
 	data() {
 		return {
-			categories: [],
 			tagInputVisible: false,
 			tagValue: '',
 			loading: false,
