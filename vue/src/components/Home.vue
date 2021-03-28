@@ -7,10 +7,11 @@
 			<div class="home_userinfoContainer">
 				<el-dropdown @command="handleCommand">
   <span class="el-dropdown-link home_userinfo">
+	  <img alt="Avatar" class="avatar" src="static/favicon.jpg">
     {{ currentUserName }}<i class="el-icon-arrow-down el-icon--right home_userinfo"></i>
   </span>
 					<el-dropdown-menu slot="dropdown">
-						<el-dropdown-item command="logout">退出登录</el-dropdown-item>
+						<el-dropdown-item command="logout">Logout</el-dropdown-item>
 					</el-dropdown-menu>
 				</el-dropdown>
 			</div>
@@ -43,7 +44,7 @@
 			<el-container>
 				<el-main>
 					<el-breadcrumb separator-class="el-icon-arrow-right">
-						<el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+						<el-breadcrumb-item :to="{ path: '/home' }">Home</el-breadcrumb-item>
 						<el-breadcrumb-item v-text="this.$router.currentRoute.name"></el-breadcrumb-item>
 					</el-breadcrumb>
 					<keep-alive>
@@ -63,13 +64,13 @@ export default {
 		handleCommand(command) {
 			let _this = this;
 			if (command === 'logout') {
-				this.$confirm('注销登录吗?', '提示', {
-					confirmButtonText: '确定',
-					cancelButtonText: '取消',
+				this.$confirm('Logout?', 'Confirm', {
+					confirmButtonText: 'Yes',
+					cancelButtonText: 'No',
 					type: 'warning'
 				}).then(function () {
 					getRequest("/logout")
-					_this.currentUserName = '游客';
+					_this.currentUserName = 'LoggedOut';
 					_this.$router.replace({path: '/'});
 				}, function () {
 					//取消
@@ -82,7 +83,7 @@ export default {
 		getRequest("/currentUserName").then(function (msg) {
 			_this.currentUserName = msg.data;
 		}, function () {
-			_this.currentUserName = '游客';
+			_this.currentUserName = 'LoggedOut';
 		});
 	},
 	data() {
@@ -124,6 +125,12 @@ export default {
 	color: #fff;
 	font-size: 22px;
 	display: inline;
+}
+
+.avatar {
+	border-radius: 50%;
+	width: 22px;
+	vertical-align: middle;
 }
 
 .home_userinfo {

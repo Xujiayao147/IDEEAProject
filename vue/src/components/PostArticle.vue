@@ -1,7 +1,8 @@
 <template>
 	<el-container v-loading="loading" class="post-article">
 		<el-header class="header">
-			<el-input v-model="article.title" placeholder="请输入标题..." style="width: 400px;margin-left: 10px"></el-input>
+			<el-input v-model="article.title" placeholder="Please enter a title..."
+			          style="width: 400px;margin-left: 10px"></el-input>
 			<el-tag
 				v-for="tag in article.dynamicTags"
 				:key="tag"
@@ -27,13 +28,13 @@
 				              @imgAdd="imgAdd" @imgDel="imgDel"></mavon-editor>
 			</div>
 			<div style="display: flex;align-items: center;margin-top: 15px;justify-content: flex-end">
-				<el-button v-if="from!==undefined" @click="cancelEdit">放弃修改</el-button>
+				<el-button v-if="from!==undefined" @click="cancelEdit">Discard changes</el-button>
 				<template v-if="from===undefined || from==='draft'">
-					<el-button @click="saveBlog(0)">保存到草稿箱</el-button>
-					<el-button type="primary" @click="saveBlog(1)">发表文章</el-button>
+					<el-button @click="saveBlog(0)">Save as draft</el-button>
+					<el-button type="primary" @click="saveBlog(1)">Post</el-button>
 				</template>
 				<template v-else>
-					<el-button type="primary" @click="saveBlog(1)">保存修改</el-button>
+					<el-button type="primary" @click="saveBlog(1)">Save changes</el-button>
 				</template>
 			</div>
 		</el-main>
@@ -66,11 +67,11 @@ export default {
 						_this.article.dynamicTags.push(tags[i].tagName)
 					}
 				} else {
-					_this.$message({type: 'error', message: '页面加载失败!'})
+					_this.$message({type: 'error', message: 'Failed!'})
 				}
 			}, () => {
 				_this.loading = false;
-				_this.$message({type: 'error', message: '页面加载失败!'})
+				_this.$message({type: 'error', message: 'Failed!'})
 			})
 		}
 	},
@@ -83,7 +84,7 @@ export default {
 		},
 		saveBlog(state) {
 			if (!(isNotNullORBlank(this.article.title, this.article.mdContent))) {
-				this.$message({type: 'error', message: '数据不能为空!'});
+				this.$message({type: 'error', message: 'Data cannot be empty!'});
 				return;
 			}
 			let _this = this;
@@ -100,7 +101,7 @@ export default {
 				_this.loading = false;
 				if (resp.status === 200 && resp.data.status === 'success') {
 					_this.article.id = resp.data.msg;
-					_this.$message({type: 'success', message: state === 0 ? '保存成功!' : '发布成功!'});
+					_this.$message({type: 'success', message: 'Successfully!'});
 //            if (_this.from != undefined) {
 					window.bus.$emit('blogTableReload')
 //            }
@@ -110,7 +111,7 @@ export default {
 				}
 			}, () => {
 				_this.loading = false;
-				_this.$message({type: 'error', message: state === 0 ? '保存草稿失败!' : '博客发布失败!'});
+				_this.$message({type: 'error', message: 'Failed!'});
 			})
 		},
 		imgAdd(pos, $file) {
