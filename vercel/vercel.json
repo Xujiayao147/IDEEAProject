@@ -2,6 +2,6 @@
   "name": "ideea-project",
   "version": 2,
   "routes": [
-    {"src": "/(.*)","dest": "https://server.xujiayao.top/$1"}
+    {"src": "/(.*)","dest": "http://server.xujiayao.top/$1"}
   ]
 }
