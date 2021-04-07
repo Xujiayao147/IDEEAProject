@@ -14,11 +14,6 @@
             state =#{state},
             editTime=#{editTime}
     </insert>
-    <update id="pvIncrement" parameterType="Long">
-        UPDATE article
-        set pageView=pageView + 1
-        WHERE id = #{aid}
-    </update>
     <update id="updateArticle" parameterType="top.xujiayao.bean.Article">
         UPDATE article SET
         title=#{title},mdContent=#{mdContent},htmlContent=#{htmlContent},summary=#{summary},editTime=#{editTime}
@@ -110,12 +105,4 @@
             <result property="tagName" column="tagName"/>
         </collection>
     </resultMap>
-
-    <select parameterType="long" id="getDataStatistics" resultType="int">
-        SELECT pv
-        from pv
-        WHERE uid = #{uid}
-        ORDER by countDate
-        limit 7
-    </select>
 </mapper>

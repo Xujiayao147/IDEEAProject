@@ -29,11 +29,4 @@ public interface ArticleMapper {
 	int deleteArticleById(@Param("aids") Long[] aids);
 
 	Article getArticleById(Long aid);
-
-	void pvIncrement(Long aid);
-
-	//INSERT INTO pv(countDate,pv,uid) SELECT NOW(),SUM(pageView),uid FROM article GROUP BY uid
-	void pvStatisticsPerDay();
-
-	List<Integer> getDataStatistics(Long uid);
 }

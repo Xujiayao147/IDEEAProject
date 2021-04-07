@@ -110,12 +110,4 @@ public class ArticleController {
 		}
 		return new RespBean("error", "还原失败!");
 	}
-
-	@RequestMapping("/dataStatistics")
-	public Map<String, Object> dataStatistics() {
-		Map<String, Object> map = new HashMap<>();
-		List<Integer> dataStatistics = articleService.getDataStatistics();
-		map.put("ds", dataStatistics);
-		return map;
-	}
 }

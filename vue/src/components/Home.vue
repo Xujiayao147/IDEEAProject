@@ -7,8 +7,7 @@
 			<div class="home_userinfoContainer">
 				<el-dropdown @command="handleCommand">
   <span class="el-dropdown-link home_userinfo">
-	  <img alt="Avatar" class="avatar" src="static/favicon.jpg">
-    {{ currentUserName }}<i class="el-icon-arrow-down el-icon--right home_userinfo"></i>
+	  {{ currentUserName }}<i class="el-icon-arrow-down el-icon--right home_userinfo"></i>
   </span>
 					<el-dropdown-menu slot="dropdown">
 						<el-dropdown-item command="logout">Logout</el-dropdown-item>

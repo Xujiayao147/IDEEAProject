@@ -121,19 +121,6 @@ public class ArticleService {
 	}
 
 	public Article getArticleById(Long aid) {
-		Article article = articleMapper.getArticleById(aid);
-		articleMapper.pvIncrement(aid);
-		return article;
-	}
-
-	public void pvStatisticsPerDay() {
-		articleMapper.pvStatisticsPerDay();
-	}
-
-	/**
-	 * 获取最近七天的数据
-	 */
-	public List<Integer> getDataStatistics() {
-		return articleMapper.getDataStatistics(Util.getCurrentUser().getId());
+		return articleMapper.getArticleById(aid);
 	}
 }
